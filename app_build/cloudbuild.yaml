@@ -1,18 +1,18 @@
 steps:
-  # Step 1: Build the Docker image using Google Container Registry (gcr.io)
+  # Step 1: Build the Docker image using Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '--build-arg=API_KEY=${_API_KEY}'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/matkulscribe'
+      - 'asia-southeast2-docker.pkg.dev/$PROJECT_ID/repo-matkulscribe/matkulscribe'
       - '.'
 
-  # Step 2: Push the built image to the container registry
+  # Step 2: Push the built image to the Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/matkulscribe'
+      - 'asia-southeast2-docker.pkg.dev/$PROJECT_ID/repo-matkulscribe/matkulscribe'
 
   # Step 3: Deploy the image to Google Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -21,7 +21,7 @@ steps:
       - 'run'
       - 'deploy'
       - 'matkulscribe'
-      - '--image=gcr.io/$PROJECT_ID/matkulscribe'
+      - '--image=asia-southeast2-docker.pkg.dev/$PROJECT_ID/repo-matkulscribe/matkulscribe'
       - '--region=asia-southeast2'
       - '--port=80'
       - '--platform=managed'
@@ -29,7 +29,7 @@ steps:
 
 # Specify the output images to be registered in Google Cloud Build artifacts
 images:
-  - 'gcr.io/$PROJECT_ID/matkulscribe'
+  - 'asia-southeast2-docker.pkg.dev/$PROJECT_ID/repo-matkulscribe/matkulscribe'
 
 # Define flexible substitution parameters that can be overridden at trigger run time
 substitutions:
