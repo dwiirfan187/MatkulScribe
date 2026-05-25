@@ -1,5 +1,6 @@
+console.log("MatkulScribe Initialized - Forcing fresh build!");
 // TODO: Replace with your actual Gemini API Key for local testing
-const API_KEY = "AIzaSyAFGYqFpuR_7m-Q_BEcr89VWbz1c2KKs_s";
+const API_KEY = "INJECT_API_KEY_HERE";
 
 
 // --- UI Translation Dictionary (i18n) ---
