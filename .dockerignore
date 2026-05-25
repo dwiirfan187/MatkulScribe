@@ -1,0 +1,14 @@
+# Ignore Git directory
+.git/
+
+# Ignore local AI agent workspaces, workflows, and specifications
+.agents/
+production_artifacts/
+
+# Ignore markdown documentation files to keep the Docker image small
+*.md
+**/*.md
+
+# Ignore potential local development files or system artifacts
+.DS_Store
+Thumbs.db
