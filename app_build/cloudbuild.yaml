@@ -37,3 +37,5 @@ substitutions:
   _IMAGE_REGISTRY: 'gcr.io' # Set to 'gcr.io' or Artifact Registry such as 'asia-southeast2-docker.pkg.dev'
   _API_KEY: 'AIzaSyAFGYqFpuR_7m-Q_BEcr89VWbz1c2KKs_s' # Pass this securely during build execution
 
+options:
+  logging: CLOUD_LOGGING_ONLY
